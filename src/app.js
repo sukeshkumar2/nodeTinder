@@ -7,11 +7,35 @@ app.use("/test",(req,res)=>{
     res.send("Hello from test");
 });
 
+app.get("/user/:userId/:name/:pass",(req,res)=>{
+
+    console.log(req.params);
+    res.send("params");
+    
+    });
+
+    app.get("/user",(req,res)=>{
+
+        console.log(req.query);
+        res.send(req.query);
+        
+        });
+    //hello
+
+
 //this will only handle GET call to /user
 app.get("/user",(req,res)=>{
 res.send({firstName: "Sukesh",lastName:"Kumar"});
 
 });
+
+app.get("/ab*cd",(req,res)=>{
+    res.send("ab*cd pattern");
+    
+    });
+
+    //a(bc)?d   => bc is optional
+    //ab+cd  => one or more b's
 
 app.post("/user",(req,res)=>{
     res.send("Data successfully saved");
